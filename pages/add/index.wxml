@@ -1,0 +1,27 @@
+<view class="m-add">
+    <view class="m-add-item">
+        <view class="amount space">
+            <text class="title">金额</text>
+            <input class="desc" placeholder="0" maxlength="9" type="number" bindinput="onAmountChange" value="{{amt}}"></input>
+        </view>
+        <view class="other space">
+            <text class="title">分类</text>
+            <picker class="desc {{index === 0 ? 'normal' : 'special'}}" bindchange="onClassifyChange" value="{{index}}" range="{{classifyArr}}">
+                <view class="picker">
+                   {{classifyArr[index]}}
+                </view>
+            </picker>
+        </view>
+        <view class="other space">
+            <text class="title">时间</text>
+            <picker class="desc {{date === '请选择' ? 'normal' : 'special'}}" mode="date" value="{{date}}" start="2017-12-01" end="2018-12-31" bindchange="onDateChange">
+                <view class="picker">
+                    {{date}}
+                </view>
+            </picker>
+        </view>
+    </view>
+    <view class="m-add-btn {{ (index > 0 && date !== '请选择' && amt > 0) ? 'selected' : 'not-selected' }}" bindtap="saveBtn">
+        <text class="save">保存</text>
+    </view>
+</view>

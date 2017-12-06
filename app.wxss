@@ -1,0 +1,3 @@
+.touch-highlight {
+    opacity: .7;
+}

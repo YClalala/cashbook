@@ -1,0 +1,14 @@
+{
+    "pages": [
+        "pages/setting/index",
+        "pages/home/index",
+        "pages/count/index",
+        "pages/add/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#4B7EF4",
+        "navigationBarTitleText": "我的记账本",
+        "navigationBarTextStyle": "white"
+    }
+}

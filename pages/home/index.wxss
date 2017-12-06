@@ -1,0 +1,91 @@
+.m-home {
+    position: relative;
+}
+
+.m-home-head {
+    height: 174px;
+    background-image: linear-gradient(to bottom, rgb(75, 126, 244), rgb(67, 102, 227));
+    display: flex;
+    flex-direction: column;
+}
+
+.m-home-wrap {
+    margin-bottom: 44px;
+}
+
+.m-home-head .center {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+.m-home-head .budget .amount {
+    font-size: 30px;
+}
+
+.m-home-head .budget .desc {
+    font-size: 16px;
+}
+
+.m-home-head .spend {
+    height: 64px;
+    width: 100%;
+    display: flex;
+}
+
+.m-home-head .spend .amount {
+    font-size: 18px;
+}
+
+.m-home-head .spend .desc {
+    font-size: 14px;
+}
+
+.m-home-bar {
+    height: 44px;
+    background-color: #F0F2F2;
+    color: #666;
+    font-size: 14px;
+    padding: 0 20px;
+}
+
+.m-home-content .space {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.m-home-consume-detail {
+    height: 62px;
+    color: #333;
+    font-size: 16px;
+    padding-right: 20px;
+    margin-left: 20px;
+
+}
+
+.m-home-content:not(:last-child){
+    border-bottom: 1px solid #eee;
+}
+
+.m-home-footer {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    height: 44px;
+    font-size: 16px;
+    color: #212121;
+    background-color:#fff;
+    border-top:1px solid #eee;
+}
+
+.m-home-footer .tab {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

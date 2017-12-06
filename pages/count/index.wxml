@@ -1,0 +1,22 @@
+<view class="m-count">
+    <view class="m-count-head">
+        <view class="spend">
+            <view class="center">
+                <text class="amount">{{thisYearIncome}}</text>
+                <text class="desc">本年收入</text>
+            </view>
+            <view class="center">
+                <text class="amount">{{thisYearExpend}}</text>
+                <text class="desc">本年支出</text>
+            </view>
+        </view>
+    </view>
+    <view class="m-count-content">
+        <view class="m-count-consume-detail"  wx:for="{{data}}" wx:key="{{item.title}}">
+            <view class="title">
+                <text>{{item.title}}</text>
+            </view>
+            <progress class="percent" percent="{{item.percent}}" active show-info />
+        </view>
+    </view>
+</view>

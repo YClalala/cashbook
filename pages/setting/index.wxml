@@ -1,0 +1,15 @@
+<view class="m-add">
+    <view class="m-add-item">
+        <view class="amount space">
+            <text class="title">本月预算</text>
+            <input class="desc" placeholder="0" maxlength="9" type="number" bindinput="onBudgeChange" value="{{budget}}"></input>
+        </view>
+        <view class="amount space">
+            <text class="title">本月收入</text>
+            <input class="desc" placeholder="0" maxlength="9" type="number" bindinput="onIncomeChange" value="{{income}}"></input>
+        </view>
+    </view>
+    <view class="m-add-btn {{ (income > 0 && budget > 0) ? 'selected' : 'not-selected' }}" bindtap="saveBtn">
+        <text class="save">保存</text>
+    </view>
+</view>

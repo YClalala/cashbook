@@ -1,0 +1,59 @@
+.m-count {
+    position: relative;
+}
+
+.m-count-head {
+    height: 64px;
+    background-image: linear-gradient(to bottom, rgb(75, 126, 244), rgb(67, 102, 227));
+    display: flex;
+    flex-direction: column;
+}
+
+.m-count-head .center {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+.m-count-head .spend {
+    height: 64px;
+    width: 100%;
+    display: flex;
+}
+
+.m-count-head .spend .amount {
+    font-size: 18px;
+}
+
+.m-count-head .spend .desc {
+    font-size: 14px;
+}
+
+.m-count-content {
+    margin-bottom: 44px;
+}
+
+.m-count-consume-detail {
+    height: 62px;
+    color: #333;
+    font-size: 16px;
+    padding-right: 20px;
+    margin-left: 20px;
+    display: flex;
+    align-items:center;
+}
+
+.m-count-consume-detail .title{
+    width: 15%;
+}
+
+.m-count-consume-detail .percent{
+    flex: 1;
+}
+
+.m-count-consume-detail:not(:last-child){
+    border-bottom: 1px solid #eee;
+}
