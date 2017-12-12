@@ -62,23 +62,47 @@ Page({
             curExpendSum: getExpendAmt(curMonthDataArr)
         })
     },
+    // 对象数组按 对象的日期 分组
+    groupByAttr(arr) {
+        let obj = {};
+        arr.forEach((item) => {
+            obj[item.date] = obj[item.date] || [];
+            obj[item.date].push(item);
+        });
+
+        return obj;
+    },
+    // 重组对象数组
+    recombine(obj) {
+        let arr = [];
+        Object.keys(obj).forEach((key) => {
+            arr.push({
+                date: key,
+                everydayExpend: getExpendAmt(obj[key]),
+                dataArr: obj[key]
+            });
+        });
+
+        return arr;
+    },
     onShow() {
         let data = wx.getStorageSync('accountArr') || [];
         let formatData = data.sort(sortArray("date"));
-        this.curYearMonthDay = null;
-        // everydayExpend 当天支出
+       // this.curYearMonthDay = null;
 
-        formatData.forEach((item) => {
+        /*formatData.forEach((item) => {
             if (item.date !== this.curYearMonthDay) {
                 this.setCurDate(item.date);
                 item.isShowTitle = true;
             } else {
                 item.isShowTitle = false;
             }
-        });
-
+        });*/
+        const groupDataObj = this.groupByAttr(formatData);
+        const recombineArr = this.recombine(groupDataObj);
+        console.log(recombineArr);
         this.setData({
-            classify: formatData
+            classify: recombineArr
         });
         this.getCurMonthExpend(formatData);
         this.getCurMonthPlan();

@@ -52,8 +52,6 @@ Page({
 
         return arr;
     },
-
-
     onShow() {
         let data = wx.getStorageSync('accountArr');
         const thisYearExpend = getExpendAmt(data);

@@ -16,12 +16,12 @@
                 </view>
             </view>
         </view>
-        <view class="m-home-content" wx:for="{{classify}}" wx:key="{{item.id}}">
-            <view class="m-home-bar space" wx:if="{{item.isShowTitle}}">
+        <view class="m-home-content" wx:for="{{classify}}" wx:key="{{item.date}}">
+            <view class="m-home-bar space">
                 <text>{{item.date}}</text>
-                <text>支出: 10100</text>
+                <text>支出: {{item.everydayExpend}}</text>
             </view>
-            <view class="m-home-consume-detail space" hover-class="touch-highlight" data-item="{{item}}" bindtap="modifyItem">
+            <view class="m-home-consume-detail space"  wx:for="{{item.dataArr}}" wx:key="{{item.id}}" hover-class="touch-highlight" data-item="{{item}}" bindtap="modifyItem">
                 <view class="title">
                     <text>{{item.title}}</text>
                 </view>
