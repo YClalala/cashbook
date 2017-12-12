@@ -19,11 +19,7 @@
         <view class="m-home-content" wx:for="{{classify}}" wx:key="{{item.id}}">
             <view class="m-home-bar space" wx:if="{{item.isShowTitle}}">
                 <text>{{item.date}}</text>
-                <view>
-                    <text>收入: 0 </text>
-                    <text>|</text>
-                    <text> 支出: 10100</text>
-                </view>
+                <text>支出: 10100</text>
             </view>
             <view class="m-home-consume-detail space" hover-class="touch-highlight" data-item="{{item}}" bindtap="modifyItem">
                 <view class="title">

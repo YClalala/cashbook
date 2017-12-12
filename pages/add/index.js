@@ -37,22 +37,30 @@ Page({
     },
     saveBtn() {
         const { date, amt, index } = this.data;
-
         if (index === 0 && date === '请选择' && !amt) return;
 
-        const accountObj = {
+        let accountArr = wx.getStorageSync('accountArr') || [];
+        accountArr.push({
             date,
             expend: amt,
             id: index,
             title: info.classify[index].title
-        };
-        const accountArr = wx.getStorageSync('accountArr') || [];
-        accountArr.push(accountObj);
+        });
+
         wx.setStorageSync('accountArr', accountArr);
         wx.navigateBack();
     },
     onLoad(params) {
         const {date, amt, index} = params;
+        let accountArr = wx.getStorageSync('accountArr');
+        // 处理修改
+        accountArr.forEach((item, idx) => {
+           if (item.date === date && item.expend === amt && item.id === index) {
+               accountArr.splice(idx, 1);
+           }
+        });
+        wx.setStorageSync('accountArr', accountArr);
+
         this.setData({
             index,
             date,

@@ -1,8 +1,8 @@
 {
     "pages": [
-        "pages/setting/index",
         "pages/home/index",
         "pages/count/index",
+        "pages/setting/index",
         "pages/add/index"
     ],
     "window": {

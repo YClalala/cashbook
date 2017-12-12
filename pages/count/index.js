@@ -3,7 +3,7 @@
  * Created by yicui on 2017/11/19.
  * email: 1987497713@qq.com
  */
-import { sortArray, getExpendAmt } from '../../common/util';
+import { sortArray, getExpendAmt, getIncomeAmt, clearOldData } from '../../common/util';
 
 Page({
     data: {
@@ -52,16 +52,23 @@ Page({
 
         return arr;
     },
+
+
     onShow() {
         let data = wx.getStorageSync('accountArr');
         const thisYearExpend = getExpendAmt(data);
+
+        let outInData = clearOldData();
+        const thisYearIncome = getIncomeAmt(outInData);
+
         let formatData = data.sort(sortArray("id"));
         const groupDataObj = this.groupByAttr(formatData);
         const recombineArr = this.recombine(groupDataObj, thisYearExpend);
 
         this.setData({
             data: recombineArr,
-            thisYearExpend
+            thisYearExpend,
+            thisYearIncome
         })
     },
     onHide: function() {

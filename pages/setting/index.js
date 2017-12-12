@@ -3,7 +3,7 @@
  * Created by yicui on 2017/12/06.
  * email: 1987497713@qq.com
  */
-import { getMonthYear } from '../../common/util';
+import { getMonthYearDay, clearOldData } from '../../common/util';
 
 Page({
     data: {
@@ -11,23 +11,43 @@ Page({
         income: null
     },
     onBudgeChange(e) {
+        if (/^0/.test(e.detail.value)) {
+            wx.showToast({title: '格式出错了'});
+        }
         this.setData({
             budget: e.detail.value
         });
     },
     onIncomeChange(e) {
+        if (/^0/.test(e.detail.value)) {
+            wx.showToast({title: '格式出错了'});
+        }
         this.setData({
             income: e.detail.value
         });
     },
     saveBtn() {
         const { budget, income } = this.data;
-        const { year, month } = getMonthYear();
         if (!budget || !income) return ;
 
-        const curMonthYear = `${year}-${month}`;
-        console.log(getMonthYear().year)
+        let planOutInArr = clearOldData();
+        const { year, month } = getMonthYearDay();
+        const addOutInObj = {
+            year,
+            month,
+            budget,
+            income
+        };
 
+        planOutInArr.forEach((item, index) => {
+            if ((item.year === year) && (item.month === month)) {
+                planOutInArr.splice(index, 1);
+            }
+        });
+        planOutInArr.push(addOutInObj);
+
+        wx.setStorageSync('planOutInArr', planOutInArr);
+        wx.navigateBack();
     },
     onLoad(params) {
 
@@ -36,7 +56,7 @@ Page({
         // Do something when page ready.
     },
     onShow: function () {
-        // Do something when page show.
+
     },
     onHide: function () {
         // Do something when page hide.
