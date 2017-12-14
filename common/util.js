@@ -49,3 +49,21 @@ export function clearOldData() {
 
     return planOutInArr;
 }
+
+/****
+ * 对象数组按 对象的标题 分组
+ * 参数 [{title: 'a'}, {title: 'a'}, {title: 'b'}]
+ * 返回 { 'a': [{title: 'a'}, {title: 'a'}], 'b': [{title: 'b'}] }
+ * @param arr
+ * @returns {{}}
+ */
+export function groupByAttr(arr, attr) {
+    let obj = {};
+    arr.forEach((item) => {
+        const _attr = item[attr];
+        obj[_attr] = obj[_attr] || [];
+        obj[_attr].push(item);
+    });
+
+    return obj;
+}

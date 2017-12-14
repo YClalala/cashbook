@@ -3,7 +3,7 @@
  * Created by yicui on 2017/11/19.
  * email: 1987497713@qq.com
  */
-import { sortArray, getExpendAmt, getIncomeAmt, clearOldData } from '../../common/util';
+import { sortArray, getExpendAmt, getIncomeAmt, clearOldData, groupByAttr } from '../../common/util';
 
 Page({
     data: {
@@ -16,22 +16,6 @@ Page({
     },
     onReady: function() {
         // Do something when page ready.
-    },
-    /****
-     * 对象数组按 对象的标题 分组
-     * 参数 [{title: 'a'}, {title: 'a'}, {title: 'b'}]
-     * 返回 { 'a': [{title: 'a'}, {title: 'a'}], 'b': [{title: 'b'}] }
-     * @param arr
-     * @returns {{}}
-     */
-    groupByAttr(arr) {
-        let obj = {};
-        arr.forEach((item) => {
-            obj[item.title] = obj[item.title] || [];
-            obj[item.title].push(item);
-        });
-
-        return obj;
     },
     /****
      * 重组对象数组
@@ -60,7 +44,7 @@ Page({
         const thisYearIncome = getIncomeAmt(outInData);
 
         let formatData = data.sort(sortArray("id"));
-        const groupDataObj = this.groupByAttr(formatData);
+        const groupDataObj = groupByAttr(formatData, 'title');
         const recombineArr = this.recombine(groupDataObj, thisYearExpend);
 
         this.setData({
@@ -75,4 +59,4 @@ Page({
     onUnload: function() {
         // Do something when page close.
     }
-})
+});

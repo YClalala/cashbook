@@ -64,10 +64,9 @@
     font-size: 16px;
     padding-right: 20px;
     margin-left: 20px;
-
 }
 
-.m-home-content:not(:last-child){
+.m-home-consume-detail:not(:last-child){
     border-bottom: 1px solid #eee;
 }
 

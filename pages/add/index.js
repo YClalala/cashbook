@@ -7,9 +7,7 @@ import info from '../../common/const';
 info.classify.unshift({ title: '请选择' });
 Page({
     data: {
-        classifyArr: info.classify.map((item) => {
-            return item.title;
-        }),
+        classifyArr: info.classify.map((item) => item.title),
         index: 0,
         date: '请选择',
         amt: null,

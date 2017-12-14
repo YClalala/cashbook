@@ -3,7 +3,7 @@
  * Created by yicui on 2017/11/19.
  * email: 1987497713@qq.com
  */
-import { sortArray, getExpendAmt, clearOldData, getMonthYearDay } from '../../common/util';
+import { sortArray, getExpendAmt, clearOldData, getMonthYearDay, groupByAttr } from '../../common/util';
 
 Page({
     data: {
@@ -29,9 +29,6 @@ Page({
     },
     onReady: function () {
         // Do something when page ready.
-    },
-    setCurDate(date) {
-        this.curYearMonthDay = date;
     },
     getCurMonthPlan() {
         let curYearPlanData = clearOldData();
@@ -62,16 +59,6 @@ Page({
             curExpendSum: getExpendAmt(curMonthDataArr)
         })
     },
-    // 对象数组按 对象的日期 分组
-    groupByAttr(arr) {
-        let obj = {};
-        arr.forEach((item) => {
-            obj[item.date] = obj[item.date] || [];
-            obj[item.date].push(item);
-        });
-
-        return obj;
-    },
     // 重组对象数组
     recombine(obj) {
         let arr = [];
@@ -88,22 +75,13 @@ Page({
     onShow() {
         let data = wx.getStorageSync('accountArr') || [];
         let formatData = data.sort(sortArray("date"));
-       // this.curYearMonthDay = null;
-
-        /*formatData.forEach((item) => {
-            if (item.date !== this.curYearMonthDay) {
-                this.setCurDate(item.date);
-                item.isShowTitle = true;
-            } else {
-                item.isShowTitle = false;
-            }
-        });*/
-        const groupDataObj = this.groupByAttr(formatData);
+        const groupDataObj = groupByAttr(formatData, 'date');
         const recombineArr = this.recombine(groupDataObj);
-        console.log(recombineArr);
+
         this.setData({
             classify: recombineArr
         });
+
         this.getCurMonthExpend(formatData);
         this.getCurMonthPlan();
     },
