@@ -1,7 +1,16 @@
 # 我的第一个微信小程序-记账本
 
-1 先clone代码到本地
-2 下载微信开发者工具
-3 运行小程序
+1 先clone代码到本地  
+2 下载微信开发者工具  
+3 运行小程序  
 
-![image](https://github.com/YClalala/cashbook/blob/master/image/play.gif?raw=true)
+# 功能部分  
+- 列表：展示本月剩余预算、本月支出、本月收入；过往每笔支出、按天统计支出总额
+- 添加：按时间、按类别记账
+- 修改：可重新修改金额、类别、时间
+- 设置：可设置本月预算与收入
+- 统计：统计本年所有的收入与支出
+
+![image](https://github.com/YClalala/cashbook/blob/master/image/play.gif?raw=true)    
+
+记账本的简单实现，功能还不全，后续有机会会继续完善。感谢大力相助的UED妹纸zhh
