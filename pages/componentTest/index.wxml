@@ -1,0 +1,2 @@
+<!-- 以下是对一个自定义组件的引用 -->
+<itemList title="{{title}}" desc="{{desc}}" bindtest="onTest"></itemList>

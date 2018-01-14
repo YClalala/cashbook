@@ -7,13 +7,13 @@
 // 也就是说：此文件可以留空
 App({
     onLaunch: function(options) {
-        // Do something initial when launch.
+        console.log('APP onLaunch')
     },
     onShow: function(options) {
-        // Do something when show.
+        console.log('APP onShow')
     },
     onHide: function() {
-        // Do something when hide.
+        console.log('APP onHide')
     },
     onError: function(msg) {
         console.log(msg)

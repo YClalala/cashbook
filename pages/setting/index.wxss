@@ -1,1 +1,1 @@
-@import "../../templates/listTpl/index.wxss";
+@import "../../components/itemList/index.wxss";

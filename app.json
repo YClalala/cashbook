@@ -3,7 +3,8 @@
         "pages/home/index",
         "pages/count/index",
         "pages/setting/index",
-        "pages/add/index"
+        "pages/add/index",
+        "pages/componentTest/index"
     ],
     "window": {
         "backgroundTextStyle": "light",

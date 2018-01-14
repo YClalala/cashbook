@@ -25,10 +25,10 @@ Page({
         })
     },
     onLoad: function (options) {
-
+        console.log('onLoad');
     },
     onReady: function () {
-        // Do something when page ready.
+        console.log('onReady');
     },
     getCurMonthPlan() {
         let curYearPlanData = clearOldData();
@@ -84,8 +84,12 @@ Page({
 
         this.getCurMonthExpend(formatData);
         this.getCurMonthPlan();
+        console.log('onShow');
     },
     onHide: function () {
-        // Do something when page hide.
+        console.log('onHide');
+    },
+    onUnload: function () {
+        console.log('onUnload');
     }
 });

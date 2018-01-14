@@ -1,0 +1,9 @@
+<view class="m-add">
+    <view class="m-add-item">
+        <view class="amount space" bindtap="test">
+            <text class="title">{{title}}</text>
+            <text class="desc">{{desc}}</text>
+        </view>
+        <slot name="amt"></slot>
+    </view>
+</view>
